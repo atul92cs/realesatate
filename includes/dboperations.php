@@ -10,7 +10,7 @@ class DbOperation
   }
    function getProjects()
   {
-      $stmt=$this->con->prepare("SELECT project_id,project_name,project_type,possesion_type,project_price,project_address FROM projects WHERE project_prior = 'featured'");
+      $stmt=$this->con->prepare("SELECT project_id,project_name,project_city,project_type,possesion_type,project_price,project_address FROM projects WHERE project_prior = 'featured'");
 	  $stmt->execute();
 	  $stmt->bind_result($id,$name,$city,$type,$possesion,$price,$address);
 	  $property=array();
