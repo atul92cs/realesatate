@@ -13,6 +13,6 @@ $app->get('/cities',function(Request $req,Response $res)
 {
 	$db=new $DbOperation();
 	$cities=$db->getCities();
-	$res->getBody()->write("Cities"=>$cities);
+	$res->getBody()->write(json_encode(array("Cities"=>$cities)));
 });
 $app->run();
