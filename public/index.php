@@ -20,4 +20,11 @@ $app->get('/projects',function(Request $req,Response $res){
 	$projects=$db->getProjects();
 	$res->getBody()->write(json_encode(array("Projects"=>$projects)));
 });
+$app->get('/projects/{city}',function(Request $req,Response $res)
+{
+	$city=$req->getAttribute('city');
+	$db=new DbOperation();
+	$projects=$db->getProjectsbyCity($city);
+	$res->getBody()->write(json_encode(array("Projects"=>$projects)));
+});
 $app->run();
