@@ -24,7 +24,7 @@ class DbOperation
 		$temp['Possesion']=$possesion;
 		$temp['Type']=$type;
 		$temp['Address']=$address;
-		array_push($propety,$temp)
+		array_push($propety,$temp);
 		
 	  }
 	  return $property;
