@@ -18,6 +18,6 @@ $app->get('/cities',function(Request $req,Response $res)
 $app->get('/projects',function(Request $req,Response $res){
 	$db=new DbOperation();
 	$projects=$db->getProjects();
-	$res->getBody()->write(json_encode("Projects"=>$projects)));
+	$res->getBody()->write(json_encode(array("Projects"=>$projects)));
 });
 $app->run();
