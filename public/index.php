@@ -14,5 +14,5 @@ $app->get('/cities',function(Request $req,Response $res))
 	$db=$new dboperations();
 	$cities=$db->getCities();
 	$res->getBody()->write("Cities"=>$cities);
-}
+});
 $app->run();
