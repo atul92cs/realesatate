@@ -31,7 +31,7 @@ class DbOperation
   }  
    function getProjectsbyCity($city)
     {
-		$stmt=$this->con->prepare("SELECT * FROM projects WHERE project_city=?");
+		$stmt=$this->con->prepare("SELECT project_id,project_name,project_city,project_type,possesion_type,project_price,project_address FROM projects WHERE project_city=?");
 		$stmt->bind_param("s",$city);
 		$stmt->execute();
 		$stmt->bind_result($id,$name,$city,$type,$possesion,$price,$address);
@@ -45,6 +45,7 @@ class DbOperation
 		$temp['Type']=$type;
 		$temp['Possesion']=$possesion;
 		$temp['Type']=$type;
+			$temp['Price']=$price;
 		$temp['Address']=$address;
 		array_push($propety,$temp);
 			
