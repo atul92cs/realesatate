@@ -15,4 +15,9 @@ $app->get('/cities',function(Request $req,Response $res)
 	$cities=$db->getCities();
 	$res->getBody()->write(json_encode(array("Cities"=>$cities)));
 });
+$app->get('/projects',function(Request $req,Response $res){
+	$db=new DbOperation();
+	$projects=$db->getProjects();
+	$res->getBody()->write(json_encode("Projects"=>$projects));
+});
 $app->run();
