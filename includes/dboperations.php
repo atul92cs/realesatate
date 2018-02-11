@@ -12,7 +12,7 @@ class DbOperation
   {
       $stmt=$this->con->prepare("SELECT * FROM projects WHERE project_prior = 'featured'");
 	  $stmt->execute();
-	  $stmt->bind_result($id,$name,$city,$type,$possesion,$price,$address);
+	  $stmt->bind_result($project_id,$name,$city,$type,$possesion,$price,$address);
 	  $property=array();
 	  while($stmt->fetch())
 	  {
