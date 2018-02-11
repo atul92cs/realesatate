@@ -11,7 +11,7 @@ $app->get('/test',function(Request $req,Response $res){
 });
 $app->get('/cities',function(Request $req,Response $res)
 {
-	$db=new $DbOperation();
+	$db=new DbOperation();
 	$cities=$db->getCities();
 	$res->getBody()->write(json_encode(array("Cities"=>$cities)));
 });
