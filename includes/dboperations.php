@@ -47,7 +47,7 @@ class DbOperation
 		$temp['Type']=$type;
 			$temp['Price']=$price;
 		$temp['Address']=$address;
-		array_push($propety,$temp);
+		array_push($property,$temp);
 			
 		}
 		
