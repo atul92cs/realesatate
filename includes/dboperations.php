@@ -22,7 +22,7 @@ class DbOperation
 		$temp['City']=$city;
 		$temp['Type']=$type;
 		$temp['Possesion']=$possesion;
-		$temp['Type']=$type;
+		$temp['Price']=$price;
 		$temp['Address']=$address;
 		array_push($propety,$temp);
 		
