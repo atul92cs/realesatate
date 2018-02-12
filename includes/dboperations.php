@@ -94,7 +94,27 @@ class DbOperation
 	}
 	function getSaleables($city)
 	{
-	  
+	  $stmt=$this->con->prepare("SELECT project_id,project_name,project_city,project_type,project_price,project_address FROM projects WHERE possesion_type='sale' AND project_city=?");
+	    $stmt->bind_param("s",$city);
+		$stmt->execute();
+		$stmt->bind_result($id,$name,$city,$type,$price,$address);
+		$property=array();
+		while($stmt->fetch())
+		{
+			$temp=array();
+			$temp['proId']=$id;
+		$temp['Name']=$name;
+		$temp['City']=$city;
+		$temp['Type']=$type;
+		
+		$temp['Type']=$type;
+			$temp['Price']=$price;
+		$temp['Address']=$address;
+		array_push($property,$temp);
+			
+		}
+		
+		 return $property;
 	}
 }
 

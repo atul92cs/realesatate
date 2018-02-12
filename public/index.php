@@ -33,4 +33,10 @@ $app->get('/rentables/{city}',function(Request $req,Response $res){
 	$rents=$db->getRentables($city);
 	$res->getBody()->write(json_encode(array("Rentables"=>$rents)));
 });
+$app->get('/sale/{city}',function(Request $req,Response $res){
+	$city=$req->getAttribute('city');
+	$db=new DbOperation();
+	$sale=$db->getSaleables($city);
+	$res->getBody()->write(json_encode(array("Saleables"=>$sale)));
+});
 $app->run();
