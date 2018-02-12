@@ -70,7 +70,7 @@ class DbOperation
 	}
 	function getRentables($city)
 	{
-		$stmt=$this->con->prepare("SELECT project_id,project_name,project_city,project_type,project_price,project_address FROM projects WHERE possesion_type='rental' project_city=?");
+		$stmt=$this->con->prepare("SELECT project_id,project_name,project_city,project_type,project_price,project_address FROM projects WHERE possesion_type='rental' AND project_city=?");
 	    $stmt->bind_param("s",$city);
 		$stmt->execute();
 		$stmt->bind_result($id,$name,$city,$type,$price,$address);
