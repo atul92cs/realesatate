@@ -116,6 +116,21 @@ class DbOperation
 		
 		 return $property;
 	}
+	function getTypes()
+	{
+		$stmt=$this->con->prepare("SELECT project_name,project_image FROM project_types");
+		$stmt->execute();
+		$stmt->bind_result($type,$image);
+		$type=array();
+		while($stmt->fetch())
+		{
+			$temp=array();
+			$temp['type']=$type;
+			$temp['image']=$image;
+			array_push($type,$temp);
+		}
+		return $type;
+	}
 }
 
 ?>

@@ -39,4 +39,9 @@ $app->get('/sale/{city}',function(Request $req,Response $res){
 	$sale=$db->getSaleables($city);
 	$res->getBody()->write(json_encode(array("Saleables"=>$sale)));
 });
+$app->get('/types',function(Request $req,Response $res){
+	$db=new DbOperation();
+	$types=$db->getTypes();
+	$res->getBody()->write(json_encode(array("Types"=>$types)));
+});
 $app->run();
